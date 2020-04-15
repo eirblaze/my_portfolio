@@ -25,6 +25,10 @@ app.use( express.static('./static',{
   }
 }))
 
+app.use(function(req, res, next) {
+  res.status(404).redirect('/404.html')
+})
+
 // Start writing Firebase Functions
 // https://firebase.google.com/docs/functions/typescript
 export const mainPage = functions.https.onRequest(app)
