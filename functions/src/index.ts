@@ -1,6 +1,5 @@
 import * as functions from 'firebase-functions'
 import * as express from 'express'
-// import * as path from 'path'
 import * as basicAuth from 'express-basic-auth'
 
 const app = express()
@@ -17,25 +16,8 @@ app.use('/*', basicAuth({
 
 // app.all() : https://expressjs.com/ja/4x/api.html#app.all
 // app.use() : https://expressjs.com/ja/4x/api.html#app.use
-
-// app.use(basicAuth({
-//   users: { 'admin': 'supersecret' }
-// }))
-
-// app.all('/*', basicAuth({
-//   users: { 'admin': 'supersecret' }
-// }))
-
-// app.use(express.static( path.resolve(__dirname + '/static/') ))
 app.use( express.static('./static') )
-
-// app.use('/example', function (req, res) {
-//   res.send('Hello express from Firebase!' + __dirname)
-// })
 
 // Start writing Firebase Functions
 // https://firebase.google.com/docs/functions/typescript
 export const mainPage = functions.https.onRequest(app)
-// export const mainPage = functions.https.onRequest((request, response) => {
-//   response.send("Hello from Firebase !!!");
-// })
