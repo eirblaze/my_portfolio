@@ -10,10 +10,10 @@
   "scripts": {
     "ts": "npm run --prefix ./functions build",
     "sv": "npm run --prefix ./functions build && firebase serve",
-    "up": "firebase deploy",
     "start": "yarn --cwd front webpack-dev-server",
     "js": "yarn --cwd front webpack --mode=development",
     "js-r": "yarn --cwd front webpack --mode=production",
+    "up": "yarn js-r && firebase deploy",
     "lint": "eslint ./**/*.ts ./**/*.js ./**/*.mjs"
   }
 }

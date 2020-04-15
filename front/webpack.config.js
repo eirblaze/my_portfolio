@@ -5,10 +5,10 @@ const dist_js = 'js/bundle.js'
 
 // Path
 const entry_path = './src/js/'
-const dist_path = './dist/assets/'
+const dist_path = '../functions/static/assets/'
 
 // URL
-const dev_sv_base_path = './dist'
+const dev_sv_base_path = '../functions/static'
 const dev_sv_js_url    = dist_path.replace(dev_sv_base_path, '') // dev_sv_base_path をルートとして、dist_path へのパスを、URLの形で入力。(最初の一致しか置換されないことを逆手に取って文字列加工)
 
 // Plugins
