@@ -19,7 +19,11 @@ app.use('/*', basicAuth({
 
 // app.all() : https://expressjs.com/ja/4x/api.html#app.all
 // app.use() : https://expressjs.com/ja/4x/api.html#app.use
-app.use( express.static('./static') )
+app.use( express.static('./static',{
+  setHeaders: (res, path) => {
+    res.setHeader("X-Robots-Tag", "noindex");
+  }
+}))
 
 // Start writing Firebase Functions
 // https://firebase.google.com/docs/functions/typescript
