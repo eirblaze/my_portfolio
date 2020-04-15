@@ -7,7 +7,7 @@
     "rewrites": [
       {
         "source": "**",
-        "function": "app"
+        "function": "mainPage"
       }
     ],
     "ignore": [
