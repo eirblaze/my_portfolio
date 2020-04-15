@@ -11,7 +11,10 @@ app.use('/*', basicAuth({
   unauthorizedResponse: () => {
       return "Unauthorized" // 認証失敗時に表示するメッセージ
   },
-  users: { someuser: "passstring" }
+  users: {
+    eirblaze: "AkIR4BxP",
+    guest: "J2eQpIcX",
+  }
 }))
 
 // app.all() : https://expressjs.com/ja/4x/api.html#app.all
