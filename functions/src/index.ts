@@ -5,8 +5,8 @@ import * as express from 'express'
 
 const app = express()
 
-app.get('/', function (req, res) {
-  res.send('Hello express from Firebase!')
+app.all('/*', function (req, res) {
+  res.send('Hello express from Firebase!!')
 })
 
 // app.use(basicAuth({
