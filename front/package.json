@@ -4,8 +4,6 @@
   "description": "eb pf",
   "main": "functions/src/index.ts",
   "scripts": {
-    "ts": "npm run  --prefix ./functions build",
-    "sv": "npm run  --prefix ./functions build && firebase serve",
     "up": "firebase deploy",
     "js": "webpack --mode=development",
     "js-r": "webpack --mode=production",
