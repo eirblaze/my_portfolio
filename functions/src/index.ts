@@ -1,13 +1,13 @@
 import * as functions from 'firebase-functions'
-// import * as express from 'express'
+import * as express from 'express'
 // import * as path from 'path'
 // import * as basicAuth from 'express-basic-auth'
 
-// const app = express()
+const app = express()
 
-// app.all('/*', function (req, res) {
-//   res.send('Hello express from Firebase!')
-// })
+app.get('/', function (req, res) {
+  res.send('Hello express from Firebase!')
+})
 
 // app.use(basicAuth({
 //   users: { 'admin': 'supersecret' }
@@ -21,7 +21,7 @@ import * as functions from 'firebase-functions'
 
 // Start writing Firebase Functions
 // https://firebase.google.com/docs/functions/typescript
-// export const mainPage = functions.https.onRequest(app)
-export const mainPage = functions.https.onRequest((request, response) => {
-  response.send("Hello from Firebase !!!");
-})
+export const mainPage = functions.https.onRequest(app)
+// export const mainPage = functions.https.onRequest((request, response) => {
+//   response.send("Hello from Firebase !!!");
+// })
