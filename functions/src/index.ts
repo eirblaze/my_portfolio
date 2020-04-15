@@ -7,7 +7,7 @@ const app = express()
 
 // つかいかた : https://qiita.com/hiroyky/items/a16dc3315b06fd04c72a
 // 型 : https://github.com/LionC/express-basic-auth/blob/master/express-basic-auth.d.ts
-app.use(basicAuth({
+app.use('/*', basicAuth({
   challenge: true,
   unauthorizedResponse: () => {
       return "Unauthorized" // 認証失敗時に表示するメッセージ
@@ -27,10 +27,11 @@ app.use(basicAuth({
 // }))
 
 // app.use(express.static( path.resolve(__dirname + '/static/') ))
+app.use( express.static('./static') )
 
-app.use('/', function (req, res) {
-  res.send('Hello express from Firebase!')
-})
+// app.use('/example', function (req, res) {
+//   res.send('Hello express from Firebase!' + __dirname)
+// })
 
 // Start writing Firebase Functions
 // https://firebase.google.com/docs/functions/typescript
