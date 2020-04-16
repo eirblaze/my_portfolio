@@ -1,4 +1,5 @@
 import Sectioninfo from "./sectioninfo"
+import SPMenuButton from "./sp-menu-button"
 import scroll from "./scroll"
 import Fade from "./fade"
 
@@ -11,7 +12,14 @@ const sectioninfo = new Sectioninfo([
   },
 ])
 
+const _SPMenuButton = new SPMenuButton({
+  obj_name : "sp_menu",
+  css_panel : ".sp-menu-panel",
+  css_sw_panel_toggle : ".sp-menu-toggle"
+})
+
 scroll()
+
 const _fade: Fade[] = new Array(0)
 _fade.push(new Fade({
   css_panel: ".section1",

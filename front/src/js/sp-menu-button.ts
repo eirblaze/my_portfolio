@@ -47,7 +47,7 @@ export default class {
         this.SW_PanelEnd = new SW_PanelEnd(this.Panel,input.css_sw_panel_end)
         this.Responsive = new Responsive(this.Panel,input.enable_min_width, input.enable_max_width)
 
-        console.log("ready for SP menu button")
+        // console.log("ready for SP menu button")
     }
 
     public enable() :void {
