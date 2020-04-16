@@ -247,6 +247,7 @@ module.exports = (env, argv) => {
   })
 
   // pug
+  // [webpackだけでpugをビルドする環境を作る](https://qiita.com/wintyo/items/50e5a95e7dc10f237c5d)
   return_modules = merge(return_modules,{
     module: {
       rules: [
