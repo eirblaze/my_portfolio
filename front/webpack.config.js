@@ -142,19 +142,37 @@ module.exports = (env, argv) => {
     // 外部にホスティングされているjQueryなどのパッケージを読み込んで使用する方法 http://elsur.xyz/webpack-jquery-ways-to-work#jQueryundefined
     // 左側: import * from ~~~ で読み込む ~~~ の名前
     // 右側: 外部にあるグローバル変数みたいな。ここで、jQurey のほうの名前で呼んでるので、WordPressとかでもコンフリクトしない。
-    externals: [
-      {
-        jquery: 'jQuery'
-      }
-    ],
+    externals: {
+      jquery: 'jQuery'
+    },
   })
 
   // 毎回インポートしなくてもいいように
   // インポート扱い＝ファイル内ローカルスコープ＝$を使ってもコンフリクトを起こさない。
+  // import * as <左側> from <右側>
   arg__ProvidePlugin = merge(arg__ProvidePlugin,{
     jQuery: "jquery",
          $: "jquery",
   })
+
+
+  // firebase
+  return_modules = merge(return_modules,{
+    // 外部にホスティングされているjQueryなどのパッケージを読み込んで使用する方法 http://elsur.xyz/webpack-jquery-ways-to-work#jQueryundefined
+    // 左側: import * from ~~~ で読み込む ~~~ の名前
+    // 右側: 外部にあるグローバル変数みたいな。ここで、jQurey のほうの名前で呼んでるので、WordPressとかでもコンフリクトしない。
+    externals: {
+      firebase: 'firebase'
+    },
+  })
+  // console.log(return_modules.externals)
+
+  // 毎回インポートしなくてもいいように
+  // import * as <左側> from <右側>
+  arg__ProvidePlugin = merge(arg__ProvidePlugin,{
+    firebase: "firebase",
+  })
+  console.log(arg__ProvidePlugin)
 
 
   // CSS
