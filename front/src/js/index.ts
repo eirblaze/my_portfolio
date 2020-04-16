@@ -4,6 +4,7 @@ import scroll from "./scroll"
 import Fade from "./fade"
 
 import '../pug/hello-pug.pug'
+import '../pug/index.pug'
 
 import "../sass/index.sass"
 

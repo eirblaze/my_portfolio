@@ -1,11 +1,11 @@
 // filename
 const entry_js = 'index.ts'
-const dist_js = 'js/bundle.js'
+const dist_js = 'assets/js/bundle.js'
 // const dist_css = 'css/style.min.css'
 
 // Path
 const entry_path = './src/js/'
-const dist_path = '../functions/static/assets/'
+const dist_path = '../functions/static/'
 
 // URL
 const dev_sv_base_path = '../functions/static'
