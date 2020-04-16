@@ -34,7 +34,7 @@ export default class {
 
   }
 
-  private corresp_init($i_corresp : CorrespInput) {
+  private corresp_init($i_corresp : CorrespJQ[]) {
     for (let $i_member of $i_corresp ) {
 
       // 初期化
