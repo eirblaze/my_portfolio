@@ -76,9 +76,9 @@ export default class {
   }
 
   private corresp_update() {
-    for (let index = 0; index < this.corresp.length; index++) {
-      this.corresp[index] = this.corresp_update_single(this.corresp[index])
-    }
-    // console.log(this.corresp)
+    this.corresp.forEach( member => {
+      member = this.corresp_update_single(member)
+    })
+    console.log(this.corresp)
   }
 }
