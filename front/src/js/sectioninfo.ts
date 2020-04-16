@@ -1,9 +1,7 @@
-type CorrespJQ = {
+export type CorrespJQ = {
   section : JQuery
   target : JQuery
 }
-
-export type CorrespInput = Array<CorrespJQ>
 
 type Corresp = {
   jq : CorrespJQ
@@ -17,7 +15,7 @@ export default class {
 
   private corresp : Corresp[] = new Array(0)
 
-  constructor($i_corresp : CorrespInput) {
+  constructor($i_corresp : CorrespJQ[]) {
 
     this.corresp_init($i_corresp)
 
