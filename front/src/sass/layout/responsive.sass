@@ -1,4 +1,20 @@
-body
-  background-color: black
-  color: white
+$min_pcsp : 750px
+$min_towide : 1040px
+$max_pcsp : $min_pcsp - 1px
+$max_towide : $min_towide - 1px
 
+=min_w($min_width)
+  @media screen and (min-width:$min_width)
+    @content
+
+=max_w($max_width)
+  @media screen and (max-width:$max_width)
+    @content
+
+=bp_area($min_width,$max_width)
+  @media screen and (min-width:$min_width) and (max-width:$max_width)
+    @content
+
+=sp_only
+  +min_w($min_pcsp)
+    display: none
