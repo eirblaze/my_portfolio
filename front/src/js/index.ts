@@ -3,6 +3,8 @@ import SPMenuButton from "./sp-menu-button"
 import scroll from "./scroll"
 import Fade from "./fade"
 
+import '../pug/hello-pug.pug'
+
 import "../sass/index.sass"
 
 const sectioninfo = new Sectioninfo([

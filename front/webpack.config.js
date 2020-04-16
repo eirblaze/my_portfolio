@@ -246,6 +246,53 @@ module.exports = (env, argv) => {
     }
   })
 
+  // pug
+  return_modules = merge(return_modules,{
+    module: {
+      rules: [
+        {
+          test: /\.pug$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                // name: path.resolve(__dirname, dist_path, '[name].html'),
+                name: '[name].html',
+              }
+            },
+            'extract-loader',
+            {
+              loader: 'html-loader',
+              options: {
+                // attrs: ['img:src', ':data-src']
+                attributes: {
+                    list: [
+                    {
+                      tag: 'img',
+                      attribute: 'src',
+                      type: 'src',
+                    },
+                    {
+                      tag: 'img',
+                      attribute: 'data-src',
+                      type: 'src',
+                    },
+                  ],
+                },
+              }
+            },
+            {
+              loader: 'pug-html-loader',
+              options: {
+                pretty: true
+              }
+            }
+          ]
+        },
+      ]
+    }
+  })
+
   // TerserPlugin
   return_modules = merge(return_modules,{
     optimization: {
