@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    script(defer='', src='https://code.jquery.com/jquery-3.4.1.min.js', integrity='sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=', crossorigin='anonymous')
+    script(defer='', src='/assets/js/bundle.js')
+    // ↓の#に読み込みたいCSSファイル名を入れて下さい
+    link(rel='stylesheet', href='#.css')
+    title sample.html
+  body
+    h1 見出し１
+    h2 見出し２
+    h3 見出し３
+    p テキスト
+    a(href='#') リンク
+    p
+      strong 太字
+    p
+      small 小文字
+    ul
+      li リスト1
+      li リスト2
+      li リスト3
+    ol
+      li 順序リスト1
+      li 順序リスト2
+      li 順序リスト3
+    form
+      div
+        input(type='text', value='1行テキストボックス')
+      div
+        input(type='submit')
+      div
+        label
+          input(type='checkbox')
+          | チェックボックス
