@@ -1,7 +1,7 @@
 import * as functions from 'firebase-functions'
 import * as express from 'express'
 import * as basicAuth from 'express-basic-auth'
-import users from './secret/basicauth'
+import secretUsers from './secret/basicauth'
 
 const app = express()
 
@@ -12,7 +12,7 @@ app.use('/*', basicAuth({
   unauthorizedResponse: () => {
     return "Unauthorized" // 認証失敗時に表示するメッセージ
   },
-  users: (users as any)
+  users: (secretUsers as any)
 }))
 
 // app.all() : https://expressjs.com/ja/4x/api.html#app.all
