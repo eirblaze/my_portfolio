@@ -158,11 +158,18 @@ module.exports = (env, argv) => {
 
   // firebase
   return_modules = merge(return_modules,{
-    // 外部にホスティングされているjQueryなどのパッケージを読み込んで使用する方法 http://elsur.xyz/webpack-jquery-ways-to-work#jQueryundefined
-    // 左側: import * from ~~~ で読み込む ~~~ の名前
-    // 右側: 外部にあるグローバル変数みたいな。ここで、jQurey のほうの名前で呼んでるので、WordPressとかでもコンフリクトしない。
+    // https://qiita.com/K-Kachi/items/cff0c7fb1a84640c8ac0
+    // ここで注目していただきたいところはexternalsである。firebase以外は素直な感じであるがfirebaseは少し厄介である。firebase/*は読み込まれていれば十分で新たにグローバル変数を作るわけではないので空文字を返している。（憶測だが）firebase-app.jsで作られたグローバル変数firebaseに対してその他のfirebase-*.jsが機能を追加している。このことはアプリケーションの書くときに意識する必要があるので、開発中に謎のエラーに遭遇したら真っ先にfirebaseコードの読み込み関係を疑おう。
+    // script(defer='', src='/__/firebase/7.14.0/firebase-auth.js')
+    // script(defer='', src='/__/firebase/7.14.0/firebase-database.js')
+    // script(defer='', src='/__/firebase/7.14.0/firebase-messaging.js')
+    // script(defer='', src='/__/firebase/7.14.0/firebase-storage.js')
     externals: {
-      firebase: 'firebase'
+      firebase: 'firebase',
+      'firebase/auth': '',
+      'firebase/database': '',
+      'firebase/messaging': '',
+      'firebase/storage': '',
     },
   })
   // console.log(return_modules.externals)
@@ -172,7 +179,7 @@ module.exports = (env, argv) => {
   arg__ProvidePlugin = merge(arg__ProvidePlugin,{
     firebase: "firebase",
   })
-  console.log(arg__ProvidePlugin)
+  // console.log(arg__ProvidePlugin)
 
 
   // CSS

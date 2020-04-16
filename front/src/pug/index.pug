@@ -5,7 +5,7 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title Welcome to Firebase Hosting
     script(defer='', src='https://code.jquery.com/jquery-3.4.1.min.js', integrity='sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=', crossorigin='anonymous')
-    script(defer='', src='/assets/js/bundle.js')
+
     // update the version number as needed
     script(defer='', src='/__/firebase/7.14.0/firebase-app.js')
     // include only the Firebase features as you need
@@ -15,20 +15,9 @@ html
     script(defer='', src='/__/firebase/7.14.0/firebase-storage.js')
     // initialize the SDK after all desired features are loaded
     script(defer='', src='/__/firebase/init.js')
-  body.top
-    #message
-      h2 🔥Welcome🔥
-      h1 Firebase Hosting Setup Complete
-      p
-        | You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!
-      a(target='_blank', href='https://firebase.google.com/docs/hosting/') Open Hosting Documentation
-    p#load Firebase SDK Loading…
-    button.sp-menu-toggle menu toggle
-    ul.sp-menu-panel
-      li menu1
-      li menu2
-      li menu3
-      li menu4
+
+    script(defer='', src='/assets/js/bundle.js')
+
     script.
       document.addEventListener('DOMContentLoaded', function() {
       // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
@@ -49,3 +38,18 @@ html
       document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
       }
       });
+
+  body.top
+    #message
+      h2 🔥Welcome🔥
+      h1 Firebase Hosting Setup Complete
+      p
+        | You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!
+      a(target='_blank', href='https://firebase.google.com/docs/hosting/') Open Hosting Documentation
+    p#load Firebase SDK Loading…
+    button.sp-menu-toggle menu toggle
+    ul.sp-menu-panel
+      li menu1
+      li menu2
+      li menu3
+      li menu4

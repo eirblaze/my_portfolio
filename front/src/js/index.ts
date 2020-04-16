@@ -2,6 +2,7 @@ import Sectioninfo from "./sectioninfo"
 import SPMenuButton from "./sp-menu-button"
 import scroll from "./scroll"
 import Fade from "./fade"
+// import firebase_example from "./example"
 
 // import '../pug/hello-pug.pug'
 // import '../pug/example.pug'
@@ -9,6 +10,8 @@ import '../pug/reset-preview.pug'
 import '../pug/index.pug'
 
 import "../sass/index.sass"
+
+// firebase_example("#load")
 
 const sectioninfo = new Sectioninfo([
   {

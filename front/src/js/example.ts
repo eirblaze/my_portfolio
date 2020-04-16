@@ -1,6 +1,6 @@
-import firebase from "firebase"
+// import firebase from "firebase"
 
-export default function (css_sel:string) {
+export default function (attr_id:string) {
 
   document.addEventListener('DOMContentLoaded', function() {
     // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
@@ -16,10 +16,10 @@ export default function (css_sel:string) {
     try {
       let app = firebase.app();
       let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-      document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+      document.getElementById(attr_id).innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
     } catch (e) {
       console.error(e);
-      document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+      document.getElementById(attr_id).innerHTML = 'Error loading the Firebase SDK, check the console.';
     }
   });
 
