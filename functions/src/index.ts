@@ -9,7 +9,7 @@ const app = express()
 app.use('/*', basicAuth({
   challenge: true,
   unauthorizedResponse: () => {
-      return "Unauthorized" // 認証失敗時に表示するメッセージ
+    return "Unauthorized" // 認証失敗時に表示するメッセージ
   },
   users: {
     eirblaze: "AkIR4BxP",
