@@ -30,7 +30,7 @@ export default class {
       // console.log(`this.Panel.getOffset().top : ${this.Panel.getOffset().top}`)
       // console.log(`this.$window.scrollTop() : ${this.$window.scrollTop()}`)
       // console.log(`this.$window.height() : ${this.$window.height()}`)
-      if ( this.$window.scrollTop() + (this.$window.height() / 4 * 3) > this.Panel.getOffset().top ) {
+      if ( this.$window.scrollTop() + (this.$window.height() / 4 * 3) > this.Panel.getOffset() ) {
           this.Panel.reqOpen()
       }
     }

@@ -131,8 +131,8 @@ export default class {
     this.IsOpen = true
   }
 
-  public getOffset():JQuery.Coordinates {
-    return this.$Panel.offset()
+  public getOffset():number {
+    return this.$Panel.offset().top
   }
 
   public is_run():boolean {
