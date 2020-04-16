@@ -22,7 +22,8 @@ export default class {
     this.main()
     const $window = $(window)
     // resize()は$(window)のみ対応しています。
-    $window.on("scroll resize", () => this.main() )
+    $window.on("resize", () => this.main() )
+    $window.on("scroll", () => this.main() )
   }
 
   private main() {
