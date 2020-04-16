@@ -7,11 +7,11 @@ import Responsive from "./sp-menu-button/responsive"
 export type Input = {
     obj_name             : string
     css_panel            : string
-    enable_min_width?    : number|undefined
-    enable_max_width?    : number|undefined
-    css_sw_panel_toggle? : string|undefined
-    css_sw_panel_start?  : string|undefined
-    css_sw_panel_end?    : string|undefined
+    enable_min_width?    : number
+    enable_max_width?    : number
+    css_sw_panel_toggle? : string
+    css_sw_panel_start?  : string
+    css_sw_panel_end?    : string
 }
 
 export default class {
