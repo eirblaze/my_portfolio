@@ -8,15 +8,16 @@ import "../sass/index.sass"
 const sectioninfo = new Sectioninfo([
   {
     section: $("p"),
-    target: $("span"),
+    target: $("a"),
   },
 ])
 
-const _SPMenuButton = new SPMenuButton({
+const _SPMenuButton: SPMenuButton[] = new Array(0)
+_SPMenuButton.push( new SPMenuButton({
   obj_name : "sp_menu",
   css_panel : ".sp-menu-panel",
   css_sw_panel_toggle : ".sp-menu-toggle"
-})
+}))
 
 scroll()
 
