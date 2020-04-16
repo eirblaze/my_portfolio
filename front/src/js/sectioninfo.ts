@@ -17,21 +17,25 @@ export default class {
 
   constructor($i_corresp : CorrespJQ[]) {
 
-    this.corresp_init($i_corresp)
-
-    this.main()
+    // 最初の処理
     const $window = $(window)
-    // resize()は$(window)のみ対応しています。
-    $window.on("resize", () => this.main() )
-    $window.on("scroll", () => this.main() )
-  }
-
-  private main() {
-    this.corresp_update()
+    this.corresp_init($i_corresp)
     this.pos_compare()
+
+    // イベント登録
+    // resize()は$(window)のみ対応しています。
+    $window.on("resize", () => {
+      this.corresp_update()
+      this.pos_compare()
+    })
+    $window.on("scroll", () => this.pos_compare() )
   }
 
   private pos_compare() {
+    // 対応表のメンバと、スクロール位置とを照合
+  }
+
+  private pos_compare_single(corresp : Corresp) {
 
   }
 
