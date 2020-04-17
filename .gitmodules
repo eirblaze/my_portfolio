@@ -1,3 +1,6 @@
 [submodule "functions\\src\\secret"]
 	path = functions\\src\\secret
 	url = git@github.com:eirblaze/my_portfolio_secret.git
+[submodule "front/src/front_secret"]
+	path = front/src/front_secret
+	url = git@github.com:eirblaze/portfolio_front_secret.git
