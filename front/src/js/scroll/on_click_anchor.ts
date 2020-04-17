@@ -14,9 +14,6 @@ export default ():void => {
       $target = $(href)
     }
 
-    // リンク先に飛ばなくなる
-    event.preventDefault()
-
     // 親フレームが有効な場合
     let $frame = $('body,html', parent.document)
     if ($frame.length < 1) {
