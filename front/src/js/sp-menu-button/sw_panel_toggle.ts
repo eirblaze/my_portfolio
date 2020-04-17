@@ -5,15 +5,6 @@ export default class {
     private Panel! : Panel
     private $SWPanelToggle! : JQuery
 
-    readonly CSS = {
-        Open : {
-            padding: '10px'
-        },
-        Close : {
-            padding: "0"
-        }
-    }
-
     constructor(i_Panel: Panel,i_css_SWPanelToggle:string|undefined) {
 
         // なければ何もせず終了。
@@ -34,9 +25,9 @@ export default class {
         // add events
 
         // 初期状態にする
-        this.Panel.onInit( () => {
-            this.$SWPanelToggle.css(this.CSS.Close)
-        })
+        // this.Panel.onInit( () => {
+        //     this.$SWPanelToggle.css(this.CSS.Close)
+        // })
 
         // クリックしたらトグルをリクエスト
         this.$SWPanelToggle.on("click", () => {
@@ -49,14 +40,14 @@ export default class {
             //console.log("panel Start to toggle")
             this.$SWPanelToggle
             .stop()
-            .animate(this.CSS.Open, 500, 'swing')
+            // .animate(this.CSS.Open, 500, 'swing')
         })
 
         // パネルが閉じるイベント
         this.Panel.onClose( () => {
             this.$SWPanelToggle
             .stop()
-            .animate(this.CSS.Close, 500, 'swing')
+            // .animate(this.CSS.Close, 500, 'swing')
         })
 
         // 有効になったとき

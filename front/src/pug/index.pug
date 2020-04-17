@@ -41,7 +41,7 @@ html
 
   body.top
     header.header
-      a.mv(href="#message")
+      a.mv(href="#message", title="skip to message")
         svg.mv__img(xmlns='http://www.w3.org/2000/svg', width='210', height='642.833', viewBox='0 0 210 642.833')
           g.s(transform='translate(-855.5 -227.667)')
             g.s3(transform='translate(929.476 737.156)', fill='none')
@@ -56,16 +56,20 @@ html
       h1.mv__title
         span.mv__title__txt My Portfolio
 
-    section#message
-      h2 🔥Welcome🔥
-      p
-        | You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!
-      a(target='_blank', href='https://firebase.google.com/docs/hosting/') Open Hosting Documentation
-    p#load Firebase SDK Loading…
-    button.sp-menu-toggle menu toggle
-    ul.sp-menu-panel
-      li
-        a(href='/reset-preview.html') menu1
-      li menu2
-      li menu3
-      li menu4
+    .container
+      .side
+        button.sp-menu-toggle menu toggle
+        nav
+          ul.sp-menu-panel
+            li
+              a(href='/reset-preview.html') menu1
+            li menu2
+            li menu3
+            li menu4
+      main.main
+        section#message
+          h2 🔥Welcome🔥
+          p
+            | You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!
+          a(target='_blank', href='https://firebase.google.com/docs/hosting/') Open Hosting Documentation
+        p#load Firebase SDK Loading…

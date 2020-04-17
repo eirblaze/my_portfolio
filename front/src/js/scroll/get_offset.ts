@@ -16,7 +16,7 @@ export default ($target:JQuery):number => {
   let r_offset = _offset.top
 
   // ヘッダーサイズを反映
-  r_offset -= get_header_height($("header"))
+  // r_offset -= get_header_height($("header"))
 
   // マイナスの値は出力しない
   if ( r_offset < 0 ) {
