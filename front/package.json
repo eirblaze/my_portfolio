@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "eb pf",
   "main": "functions/src/index.ts",
+  "private": true,
   "scripts": {
     "up": "firebase deploy",
     "js": "webpack --mode=development",
