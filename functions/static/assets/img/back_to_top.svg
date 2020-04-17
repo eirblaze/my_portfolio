@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <clipPath id="clip-トップへ戻る">
+      <rect width="120" height="120"/>
+    </clipPath>
+  </defs>
+  <g id="トップへ戻る" clip-path="url(#clip-トップへ戻る)">
+    <path id="パス_2" data-name="パス 2" d="M10.424,30.1,52.7-24.391,94.691,30.1" transform="translate(7.5 62.5)" fill="none" stroke="#f7f8f9" stroke-width="14"/>
+  </g>
+</svg>

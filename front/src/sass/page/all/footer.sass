@@ -1,2 +1,21 @@
 .back-to-top
-  position: absolute
+  position: fixed
+  bottom: 0
+  width: 100%
+  height: auto
+  padding-bottom: 1em
+
+  display: flex
+  justify-content: flex-end
+  align-items: flex-start
+
+  &__link
+    flex: 0 0 2em
+    // border: solid 1px $color_txt
+    background-color: $color_sub
+
+    &__img
+      display: block
+      width: 2em !important
+      height: auto !important
+
