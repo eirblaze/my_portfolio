@@ -39,7 +39,7 @@ export default class {
 
   public async verify() {
 
-    const checkRecaptcha = firebase.functions().httpsCallable("/check_recaptcha")
+    const checkRecaptcha = firebase.functions().httpsCallable("checkRecaptcha")
     await checkRecaptcha({ token: this.token })
     .then(async response => {
       this.result = (await response.data) as IReCAPTCHAResult

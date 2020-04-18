@@ -4,7 +4,7 @@ import SPMenuButton from "./sp-menu-button"
 import scroll from "./scroll"
 import Fade from "./fade"
 import Recaptcha from "./recaptcha3"
-import firebase_example from "./example"
+// import firebase_example from "./example"
 
 // import '../pug/hello-pug.pug'
 // import '../pug/example.pug'
