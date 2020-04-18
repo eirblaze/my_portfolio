@@ -16,7 +16,7 @@ import "../sass/index.sass"
 
 init_firebase()
 
-firebase_example("load")
+// firebase_example("load")
 
 $(".recaptcha").on("click", () => {
   recaptcha("6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr")
