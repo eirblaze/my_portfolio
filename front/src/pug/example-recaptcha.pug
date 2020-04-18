@@ -12,3 +12,8 @@ html
       }
   body
     .g-recaptcha(data-sitekey='6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr', data-callback='dataCallback', data-expired-callback='dataExpiredCallback')
+    //- .recap
+    //-   script(src='https://www.google.com/recaptcha/api.js?render=6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr', defer='')
+    p
+      a(href="http://localhost:5000/check_recaptcha?response=6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr")
+        | request

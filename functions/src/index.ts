@@ -2,9 +2,11 @@ import * as functions from 'firebase-functions'
 import * as express from 'express'
 import * as basicAuth from 'express-basic-auth'
 import secretUsers from './secret/basicauth'
-import checkRecaptcha from './check_recaptcha'
+import _checkRecaptcha from './check_recaptcha'
 
-export const check_recaptcha = checkRecaptcha
+export const checkRecaptcha = functions.https.onRequest((req, res) => {
+  _checkRecaptcha(req,res)
+})
 
 const app = express()
 

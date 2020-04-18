@@ -7,7 +7,7 @@
     "rewrites": [
       {
         "source": "/check_recaptcha",
-        "function": "check_recaptcha"
+        "function": "checkRecaptcha"
       },
       {
         "source": "**",
