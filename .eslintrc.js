@@ -107,6 +107,7 @@ export_module = merge(export_module, {
     "jQuery": false,
     "$"     : false,
     "firebase" : false,
+    "grecaptcha" : false,
   },
 
 });

@@ -14,6 +14,10 @@ import "../sass/index.sass"
 
 // firebase_example("#load")
 
+grecaptcha.ready(() => {
+  grecaptcha.execute('reCAPTCHA_site_key', {action: 'homepage'})
+})
+
 const sectioninfo = new Sectioninfo([
   {
     section: $("p"),
