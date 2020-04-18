@@ -144,7 +144,6 @@ module.exports = (env, argv) => {
     // 右側: 外部にあるグローバル変数みたいな。ここで、jQurey のほうの名前で呼んでるので、WordPressとかでもコンフリクトしない。
     externals: {
       jquery: 'jQuery',
-      grecaptcha: 'grecaptcha',
     },
   })
 
@@ -155,6 +154,7 @@ module.exports = (env, argv) => {
     jQuery: "jquery",
          $: "jquery",
     grecaptcha: 'grecaptcha',
+    firebase: 'firebase',
   })
 
 
