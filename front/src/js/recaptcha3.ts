@@ -42,8 +42,9 @@ export default class {
     const checkRecaptcha = firebase.functions().httpsCallable("checkRecaptcha")
     await checkRecaptcha({ token: this.token })
     .then(async response => {
+      console.log("response",response)
       this.result = (await response.data) as IReCAPTCHAResult
-      console.log("result",this.result)
+      // console.log("result",this.result)
     })
     .catch(error => {
       this.error = error;
