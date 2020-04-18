@@ -6,6 +6,7 @@ import Fade from "./fade"
 
 // import '../pug/hello-pug.pug'
 // import '../pug/example.pug'
+import '../pug/example-recaptcha.pug'
 import '../pug/reset-preview.pug'
 import '../pug/index.pug'
 

@@ -1,0 +1,14 @@
+html
+  head
+    title Firebase + reCAPTCHA
+    script(src='https://www.google.com/recaptcha/api.js', async='', defer='')
+    script(type='text/javascript').
+      function dataCallback(response) {
+      console.log("dataCallback", response)
+      window.location.href = "/check_recaptcha?response=" + encodeURIComponent(response)
+      }
+      function dataExpiredCallback() {
+      console.log("dataExpiredCallback")
+      }
+  body
+    .g-recaptcha(data-sitekey='6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr', data-callback='dataCallback', data-expired-callback='dataExpiredCallback')

@@ -6,6 +6,10 @@
     "public": "public",
     "rewrites": [
       {
+        "source": "/check_recaptcha",
+        "function": "check_recaptcha"
+      },
+      {
         "source": "**",
         "function": "mainPage"
       }
