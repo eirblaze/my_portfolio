@@ -3,7 +3,7 @@ import * as rp from 'request-promise'
 import recaptcha_key from './secret/reCAPTCHA_key'
 
 export default (req:functions.https.Request, res:functions.Response) => {
-    res.send("Recaptcha")
+    // res.send("Recaptcha")
     // console.log("recaptcha req", req)
     console.log("recaptcha req.query", req.query)
     const response = req.query.response

@@ -2,7 +2,7 @@
 // @see https://github.com/ryoutoku/vue-recaptcha-firebase/blob/master/src/components/reCAPTCHAUI.vue
 import firebase from 'firebase/app'
 import 'firebase/functions'
-import Grecaptcha3, {load} from "recaptcha-v3"
+import {load} from "recaptcha-v3"
 
 interface IReCAPTCHAResult {
   success: boolean;
