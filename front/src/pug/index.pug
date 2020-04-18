@@ -16,7 +16,6 @@ html(lang="ja")
     // initialize the SDK after all desired features are loaded
     script(defer='', src='/__/firebase/init.js')
 
-    script(src='https://www.google.com/recaptcha/api.js', async='', defer='')
     script(defer='', src='/assets/js/bundle.js')
 
     script.
@@ -68,6 +67,7 @@ html(lang="ja")
               a(href='/example-recaptcha.html') menu2
             li menu3
             li menu4
+        button.recaptcha reCAPTCHA
       main.main
         section#message
           h2 🔥Welcome🔥

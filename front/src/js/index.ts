@@ -13,7 +13,9 @@ import '../pug/index.pug'
 
 import "../sass/index.sass"
 
-recaptcha("6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr")
+$(".recaptcha").on("click", () => {
+  recaptcha("6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr")
+})
 
 // firebase_example("#load")
 

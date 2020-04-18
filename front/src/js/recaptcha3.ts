@@ -1,6 +1,7 @@
 // @see https://qiita.com/ryoutoku/items/b841cf156c9f68ae3e5b
 // @see https://github.com/ryoutoku/vue-recaptcha-firebase/blob/master/src/components/reCAPTCHAUI.vue
-import firebase from "firebase"
+import firebase from 'firebase/app'
+import 'firebase/functions'
 import GReCaptcha3 from "recaptcha-v3"
 
 interface IReCAPTCHAResult {
@@ -13,7 +14,11 @@ interface IReCAPTCHAResult {
   [key: string]: any;
 }
 
-export default async (front_key :string) => {
+export default (front_key :string) => {
+  main(front_key)
+}
+
+async function main(front_key :string) {
   let result: IReCAPTCHAResult = {
     success: false,
     score: 0,

@@ -154,7 +154,6 @@ module.exports = (env, argv) => {
     jQuery: "jquery",
          $: "jquery",
     GReCaptcha3: 'recaptcha-v3',
-    firebase: 'firebase',
   })
 
 
