@@ -3,7 +3,7 @@ import Sectioninfo from "./sectioninfo"
 import SPMenuButton from "./sp-menu-button"
 import scroll from "./scroll"
 import Fade from "./fade"
-import recaptcha from "./recaptcha3"
+import Recaptcha from "./recaptcha3"
 import firebase_example from "./example"
 
 // import '../pug/hello-pug.pug'
@@ -18,8 +18,9 @@ init_firebase()
 
 // firebase_example("load")
 
+const _Recaptcha = new Recaptcha("6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr")
 $(".recaptcha").on("click", () => {
-  recaptcha("6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr")
+  _Recaptcha.verify()
 })
 
 const sectioninfo = new Sectioninfo([

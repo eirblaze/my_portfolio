@@ -2,7 +2,7 @@
 // @see https://github.com/ryoutoku/vue-recaptcha-firebase/blob/master/src/components/reCAPTCHAUI.vue
 import firebase from 'firebase/app'
 import 'firebase/functions'
-import {load} from "recaptcha-v3"
+import Grecaptcha3, {load} from "recaptcha-v3"
 
 interface IReCAPTCHAResult {
   success: boolean;
@@ -14,8 +14,9 @@ interface IReCAPTCHAResult {
   [key: string]: any;
 }
 
-export default async (siteKey :string) => {
-  let result: IReCAPTCHAResult = {
+export default class {
+
+  private result: IReCAPTCHAResult = {
     success: false,
     score: 0,
     action: "",
@@ -23,19 +24,30 @@ export default async (siteKey :string) => {
     hostname: "",
     "error-codes": []
   }
-  let error = {}
+  private error = {}
 
-  const ReCaptchaInstance = await load(siteKey)
-  const token = await ReCaptchaInstance.execute("homepage")
+  private token:string = ""
 
-  const checkRecaptcha = firebase.functions().httpsCallable("/check_recaptcha")
-  await checkRecaptcha({ token: token })
-  .then(async response => {
-    result = (await response.data) as IReCAPTCHAResult
-    console.log("result",result)
-  })
-  .catch(error => {
-    error = error;
-    console.log("error",error)
-  })
+  constructor(siteKey:string) {
+    this.init(siteKey)
+  }
+
+  private async init(siteKey:string) {
+    const ReCaptchaInstance = await load(siteKey)
+    this.token = await ReCaptchaInstance.execute("homepage")
+  }
+
+  public async verify() {
+
+    const checkRecaptcha = firebase.functions().httpsCallable("/check_recaptcha")
+    await checkRecaptcha({ token: this.token })
+    .then(async response => {
+      this.result = (await response.data) as IReCAPTCHAResult
+      console.log("result",this.result)
+    })
+    .catch(error => {
+      this.error = error;
+      console.log("error",this.error)
+    })
+  }
 }
