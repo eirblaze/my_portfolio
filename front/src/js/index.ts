@@ -2,6 +2,7 @@ import Sectioninfo from "./sectioninfo"
 import SPMenuButton from "./sp-menu-button"
 import scroll from "./scroll"
 import Fade from "./fade"
+import recaptcha from "./recaptcha3"
 // import firebase_example from "./example"
 
 // import '../pug/hello-pug.pug'
@@ -12,11 +13,9 @@ import '../pug/index.pug'
 
 import "../sass/index.sass"
 
-// firebase_example("#load")
+recaptcha("6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr")
 
-grecaptcha.ready(() => {
-  grecaptcha.execute('reCAPTCHA_site_key', {action: 'homepage'})
-})
+// firebase_example("#load")
 
 const sectioninfo = new Sectioninfo([
   {

@@ -153,7 +153,7 @@ module.exports = (env, argv) => {
   arg__ProvidePlugin = merge(arg__ProvidePlugin,{
     jQuery: "jquery",
          $: "jquery",
-    grecaptcha: 'recaptcha-v3',
+    GReCaptcha3: 'recaptcha-v3',
     firebase: 'firebase',
   })
 
