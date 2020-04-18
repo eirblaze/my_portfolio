@@ -2,7 +2,7 @@
 // @see https://github.com/ryoutoku/vue-recaptcha-firebase/blob/master/src/components/reCAPTCHAUI.vue
 import firebase from 'firebase/app'
 import 'firebase/functions'
-import GReCaptcha3 from "recaptcha-v3"
+import {load} from "recaptcha-v3"
 
 interface IReCAPTCHAResult {
   success: boolean;
@@ -14,7 +14,7 @@ interface IReCAPTCHAResult {
   [key: string]: any;
 }
 
-export default async (front_key :string) => {
+export default async (siteKey :string) => {
   let result: IReCAPTCHAResult = {
     success: false,
     score: 0,
@@ -25,10 +25,10 @@ export default async (front_key :string) => {
   }
   let error = {}
 
-  const grecaptcha3 = await GReCaptcha3.load(front_key)
-  const token = await grecaptcha3.execute("homepage")
+  const ReCaptchaInstance = await load(siteKey)
+  const token = await ReCaptchaInstance.execute("homepage")
 
-  const checkRecaptcha = firebase.functions().httpsCallable("checkRecaptcha")
+  const checkRecaptcha = firebase.functions().httpsCallable("/check_recaptcha")
   await checkRecaptcha({ token: token })
   .then(async response => {
     result = (await response.data) as IReCAPTCHAResult

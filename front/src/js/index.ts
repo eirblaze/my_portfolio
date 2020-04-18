@@ -1,3 +1,4 @@
+import init_firebase from './firebase-default'
 import Sectioninfo from "./sectioninfo"
 import SPMenuButton from "./sp-menu-button"
 import scroll from "./scroll"
@@ -12,6 +13,8 @@ import '../pug/reset-preview.pug'
 import '../pug/index.pug'
 
 import "../sass/index.sass"
+
+init_firebase()
 
 firebase_example("load")
 

@@ -1,1 +1,22 @@
-<!doctype html> <html> <head> <title>Firebase + reCAPTCHA</title> <script src=https://www.google.com/recaptcha/api.js async="" defer=""></script> <script>function dataCallback(a){console.log("dataCallback",a),window.location.href="/check_recaptcha?response="+encodeURIComponent(a)}function dataExpiredCallback(){console.log("dataExpiredCallback")}</script> </head> <body> <div class=g-recaptcha data-sitekey=6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr data-callback=dataCallback data-expired-callback=dataExpiredCallback></div> </body> </html>
+<!DOCTYPE js>
+<html>
+  <head>
+    <title>Firebase + reCAPTCHA</title>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr" async="" defer=""></script>
+    <script defer="" src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script defer="" src="/assets/js/bundle.js"></script>
+    <script type="text/javascript">
+      function dataCallback(response) {
+      console.log("dataCallback", response)
+      window.location.href = "/check_recaptcha?response=" + encodeURIComponent(response)
+      }
+      function dataExpiredCallback() {
+      console.log("dataExpiredCallback")
+      }
+    </script>
+  </head>
+  <body>
+    <div class="g-recaptcha" data-sitekey="6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr" data-callback="dataCallback" data-expired-callback="dataExpiredCallback"></div>
+    <p><a href="http://localhost:5000/check_recaptcha?response=6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr">request</a></p>
+  </body>
+</html>
