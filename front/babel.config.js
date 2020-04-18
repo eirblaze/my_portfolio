@@ -23,9 +23,10 @@ module.exports = function(api) {
           corejs: 3, // or 2
           useBuiltIns: "entry",
           // useBuiltIns: "usage",
-          // targets: {
-          //   "ie": 11
-          // },
+          targets: {
+            node: "current",
+            // ie: 11,
+          },
 
         }
       ]

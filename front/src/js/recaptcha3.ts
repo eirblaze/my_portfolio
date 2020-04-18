@@ -14,8 +14,16 @@ interface IReCAPTCHAResult {
   [key: string]: any;
 }
 
-export default (front_key :string) => {
-  main(front_key)
+export default async (front_key :string) => {
+  // main(front_key)
+
+  $(".works__title")
+  .append("<span>aaa</span>")
+  .css({
+    backgroundColor: "#0f49c4",
+    color: "#ECECFC",
+  })
+
 }
 
 async function main(front_key :string) {
