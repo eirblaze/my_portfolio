@@ -25,6 +25,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-typescript": "^7.3.3",
     "@types/firebase": "^3.2.1",
+    "@types/grecaptcha": "^3.0.1",
     "@types/jest": "^24.0.19",
     "@types/jquery": "^3.3.31",
     "@types/jsdom": "^16.2.0",

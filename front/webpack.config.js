@@ -143,7 +143,8 @@ module.exports = (env, argv) => {
     // 左側: import * from ~~~ で読み込む ~~~ の名前
     // 右側: 外部にあるグローバル変数みたいな。ここで、jQurey のほうの名前で呼んでるので、WordPressとかでもコンフリクトしない。
     externals: {
-      jquery: 'jQuery'
+      jquery: 'jQuery',
+      grecaptcha: 'grecaptcha',
     },
   })
 
@@ -153,6 +154,7 @@ module.exports = (env, argv) => {
   arg__ProvidePlugin = merge(arg__ProvidePlugin,{
     jQuery: "jquery",
          $: "jquery",
+    grecaptcha: 'grecaptcha',
   })
 
 
