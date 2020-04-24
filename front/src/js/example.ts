@@ -1,4 +1,4 @@
-import firebase from "firebase/app"
+import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
 import 'firebase/messaging'
@@ -18,14 +18,14 @@ export default function (attr_id:string) {
     // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
     try {
-      let app = firebase.app();
-      let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-      document.getElementById(attr_id).innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+      let app = firebase.app()
+      let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function')
+      document.getElementById(attr_id).innerHTML = `Firebase SDK loaded with ${features.join(', ')}`
     } catch (e) {
       console.error(e);
-      document.getElementById(attr_id).innerHTML = 'Error loading the Firebase SDK, check the console.';
+      document.getElementById(attr_id).innerHTML = 'Error loading the Firebase SDK, check the console.'
     }
-  });
+  })
 
   // const $target = $(css_sel)
   // if ( $target.length < 1 ) return

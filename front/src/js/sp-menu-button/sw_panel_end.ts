@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import Panel from "./panel"
 
 export default class {

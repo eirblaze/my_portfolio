@@ -15,5 +15,12 @@
     "js-r": "yarn --cwd front webpack --mode=production",
     "up": "yarn js-r && firebase deploy",
     "lint": "eslint ./**/*.ts ./**/*.js ./**/*.mjs"
+  },
+  "dependencies": {
+    "@types/firebase": "^3.2.1",
+    "@types/grecaptcha": "^3.0.1",
+    "@types/jest": "^24.0.19",
+    "@types/jsdom": "^16.2.0",
+    "@types/jquery": "^3.3.35"
   }
 }

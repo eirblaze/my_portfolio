@@ -4,7 +4,7 @@ import SPMenuButton from "./sp-menu-button"
 import scroll from "./scroll"
 import Fade from "./fade"
 import Recaptcha from "./recaptcha3"
-// import firebase_example from "./example"
+import firebase_example from "./example"
 
 // import '../pug/hello-pug.pug'
 // import '../pug/example.pug'
@@ -16,7 +16,7 @@ import "../sass/index.sass"
 
 init_firebase()
 
-// firebase_example("load")
+firebase_example("load")
 
 const _Recaptcha = new Recaptcha("6Le0o-oUAAAAAHwvyOjfPATjU4DijvXiJoQ6xRvr")
 $(".recaptcha").on("click", () => {
