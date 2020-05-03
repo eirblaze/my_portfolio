@@ -36,7 +36,7 @@ export default class {
     const ReCaptchaInstance = await load(siteKey)
     this.token = await ReCaptchaInstance.execute("homepage")
     console.log("token",this.token)
-    $(".recaptcha_result").text(this.token)
+    // $(".recaptcha_result").text(this.token)
   }
 
   public async verify() {

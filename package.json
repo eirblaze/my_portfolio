@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "ts": "npm run --prefix ./functions build",
-    "sv": "npm run --prefix ./functions build && firebase serve",
+    "sv": "yarn js && npm run --prefix ./functions build && firebase serve",
     "start": "yarn --cwd front webpack-dev-server",
     "js": "yarn --cwd front webpack --mode=development",
     "js-r": "yarn --cwd front webpack --mode=production",
