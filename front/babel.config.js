@@ -20,13 +20,16 @@ module.exports = function(api) {
           //
           // useBuiltIns について 公式 https://babeljs.io/docs/en/babel-preset-env
           //
-          corejs: 3, // or 2
-          useBuiltIns: "entry",
+          // corejs: 3, // or 2
+          // useBuiltIns: "entry",
           // useBuiltIns: "usage",
           targets: {
             node: "current",
             // ie: 11,
           },
+          include: [
+            /(function|promise)/i,
+          ],
 
         }
       ]
