@@ -1,144 +1,205 @@
-const merge   = require('webpack-merge');
+// @ts-check
+////<reference path="eslint"/>
+const merge = require("webpack-merge").default
 
-// 共通設定
-let export_module = {
-  //root: true,
-  extends: [
-    "eslint:recommended", // おすすめ設定をまとめた公式プリセット
-    //"plugin:node/recommended" // "type":"module"フィールドがpackage.jsonに存在する場合は、ファイルをESモジュールと見なします。そうでなければ、ファイルをCommonJSと見なします。さらに、*.mjsファイルをESモジュールと見なし、*.cjsファイルをCommonJS と見なします。
-  ],
-  plugins: [
-    "node",
-  ],
-  parserOptions: {
-    // ecmaVersion: 6を記載しても、ES2015(ES6) の新しいグローバル変数は定義されません (構文解析器のオプションなので)。他方でenv: {es6: true}を記載すると、構文解析器は ES2015(ES6) の構文を解析するようになり、かつES2015(ES6) の新しいグローバル変数が定義されます。envは複合的な設定セットなのです。
-    ecmaVersion: 2018, // そのため、できる限りparserOptionsよりもenvを使うようにしましょう。 https://qiita.com/mysticatea/items/8bcecd821cca9e849078#-%E6%96%B0%E3%81%97%E3%81%84-ecmafeatures
-    sourceType: "module",
+const eslintCfg = []
+
+eslintCfg.push({
+  // 共通
+  extends: ["eslint:recommended"],
+  settings: {
+    "import/resolver": {
+      webpack: {
+        config: "webpack.config.ts",
+      },
+      resolvePaths: [__dirname],
+      tryExtensions: [".js", ".json", ".node", ".ts", ".jsx", ".tsx", ".mjs"],
+    },
   },
   env: {
-    browser: true,
-    node: true,
-    es6: true, // 推奨 : https://qiita.com/mysticatea/items/8bcecd821cca9e849078#-%E6%96%B0%E3%81%97%E3%81%84-ecmafeatures
+    es2020: true,
+  },
+  parserOptions: {
+    ecmaVersion: 2020,
   },
   rules: {
+    // インデント
+    // 'indent': [
+    //   'error',
+    //   2
+    // ],
+    // 'linebreak-style': [
+    //   'error',
+    //   'unix'
+    // ],
 
-    // セミコロン
-    // @see https://qiita.com/mysticatea/items/9da94240f29ea516ae87
-    //semi: "warn",
-    semi: ["warn", "never", {
-      //"omitLastInOneLineBlock": true,
-      "beforeStatementContinuationChars": "always"
-    }],
-    "semi-spacing": ["error", { "after": true, "before": false }],
-    "semi-style": ["error", "first"],
-    "no-extra-semi": "error",
-    "no-unexpected-multiline": "error",
-    "no-unreachable": "error",
+    // [セミコロン](https://qiita.com/mysticatea/items/9da94240f29ea516ae87)
+    // "semi": ["error", "never", {"beforeStatementContinuationChars": "never"}],
+    // "semi-spacing": ["error", {"after": true, "before": false}],
+    // "semi-style": ["error", "first"],
+    // "no-extra-semi": "error",
+    // "no-unexpected-multiline": "error",
+    // "no-unreachable": "error",
 
     // コンソールログ
     "no-console": "off",
     "no-restricted-syntax": [
-        "error",
-        {
-            "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
-            "message": "Unexpected property on console object was called"
-        }
+      "error",
+      {
+        selector:
+          "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+        message: "Unexpected property on console object was called",
+      },
     ],
-
-    // Node.js のバージョン。
-    "node/no-unsupported-features/es-builtins": ["error", {
-      "version": ">=12.0.0",
-      "ignores": []
-    }],
-
-    // exportsが混ざってないかどうか検出。混ざってるとどっちか消えるため。
-    "node/exports-style": ["error", "module.exports"],
-
-    // ???
-    "node/no-deprecated-api": "error",
-
-    // import の名前解決
-    "node/no-missing-import": ["error", {
-      "resolvePaths": [__dirname],
-      "tryExtensions": [".js", ".json", ".node", ".ts", ".jsx", ".tsx", ".mjs"]
-    }],
-    "node/no-missing-require": ["error", {
-      "resolvePaths": [__dirname],
-      "tryExtensions": [".js", ".json", ".node", ".ts", ".jsx", ".tsx", ".mjs"]
-    }],
-
-    // その他の設定
-    "arrow-body-style": "error",
-    "arrow-parens": "error",
-    "arrow-spacing": "error",
-    "generator-star-spacing": "error",
-    "no-duplicate-imports": "error",
-    "no-useless-computed-key": "error",
-    "no-useless-constructor": "error",
-    "no-useless-rename": "error",
-    "no-var": "error",
-    "object-shorthand": "error",
-    "prefer-arrow-callback": "error",
-    "prefer-const": "error",
-    "prefer-rest-params": "error",
-    "prefer-spread": "error",
-    "prefer-template": "error",
-    "rest-spread-spacing": "error",
-    "template-curly-spacing": "error",
-    "yield-star-spacing": "error"
-  }
-};
-
-// JSX
-export_module = merge(export_module, {
-  parserOptions: {
-    ecmaFeatures: {
-      "jsx": true
-    }
-  }
-});
-
-
-// jQuery CDN
-export_module = merge(export_module, {
-
-  // グローバル変数登録
-  globals: {
-    "jQuery": false,
-    "$"     : false,
-    "firebase" : false,
-    "grecaptcha" : false,
   },
+})
 
-});
-
-
-// Jest
-export_module = merge(export_module, {
-  plugins: [
-    "jest",
+// src
+eslintCfg.push({
+  overrides: [
+    {
+      files: ["**/src/**/*.ts", "**/src/**/*.js"],
+      plugins: ["jquery"],
+      env: {
+        browser: true,
+        jquery: true,
+      },
+    },
   ],
+})
+
+// ts
+eslintCfg.push({
+  overrides: [
+    {
+      files: ["**/*.ts"],
+      env: {
+        es2021: true,
+      },
+      extends: ["plugin:@typescript-eslint/recommended"],
+      parser: "@typescript-eslint/parser",
+      parserOptions: {
+        sourceType: "module",
+        tsconfigRootDir: __dirname,
+        project: ["./tsconfig.json"],
+      },
+      plugins: ["@typescript-eslint"],
+      settings: {
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"],
+        },
+        "import/resolver": {
+          typescript: {
+            alwaysTryTypes: false, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+          },
+        },
+      },
+    },
+  ],
+})
+
+// node
+// yarn add -D eslint-plugin-node
+// https://www.npmjs.com/package/eslint-plugin-node
+eslintCfg.push({
+  overrides: [
+    {
+      files: [
+        ".eslintrc.*",
+        "*.config.*",
+        "gulpfile.*",
+        "tasks/**/*.ts",
+        "tasks/**/*.js",
+      ],
+      plugins: ["node"], // eslint-plugin-node は plugin の設定をしていないにもかかわらず、extends の設定をしておけば extends の config が plugin を読み込んでくれるので、plugin に何も書かなくても plugin が使えた @see https://blog.ojisan.io/eslint-plugin-and-extend
+      extends: ["eslint:recommended", "plugin:node/recommended"],
+      parserOptions: {
+        // Only ESLint 6.2.0 and later support ES2020.
+        ecmaVersion: 2020,
+      },
+      env: {
+        browser: false,
+        node: true,
+      },
+      settings: {
+        node: {
+          tryExtensions: [
+            ".js",
+            ".json",
+            ".node",
+            ".ts",
+            ".jsx",
+            ".tsx",
+            ".mjs",
+          ],
+        },
+      },
+      rules: {
+        // disallow deprecated APIs
+        "node/no-deprecated-api": "error",
+
+        // https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-unsupported-features/es-syntax.md
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          {
+            // Node.js のバージョン。
+            // version: ">=14.0.0", // このルールは package.json の engines フィールドを読み取ります。ただし、オプションでバージョンを上書きすることができます。
+            ignores: ["modules"],
+          },
+        ],
+        "node/no-unsupported-features/es-builtins": [
+          "error",
+          {
+            // version: ">=14.0.0", // このルールは package.json の engines フィールドを読み取ります。
+            // ignores: [],
+          },
+        ],
+
+        // exportsが混ざってないかどうか検出。混ざってるとどっちか消えるため。
+        "node/exports-style": ["error", "module.exports"],
+
+        // import の名前解決。別でやるため不要。
+        "node/no-missing-import": "off",
+        "node/no-missing-require": "off",
+      },
+    },
+  ],
+})
+
+// jest
+eslintCfg.push({
+  overrides: [
+    {
+      files: [
+        "**/__tests__/**/*.ts",
+        "**/__tests__/**/*.js",
+        "**/*.test.js",
+        "**/*.test.ts",
+      ],
+      plugins: ["jest"],
+      env: {
+        "jest/globals": true,
+      },
+      extends: ["plugin:jest/recommended", "plugin:jest/style"],
+    },
+  ],
+})
+
+// prettier
+// 最後にプッシュする
+eslintCfg.push({
+  plugins: ["prettier"],
   extends: [
-    "plugin:jest/recommended",
-    // "plugin:jest/style",
+    "prettier", // "prettier/@typescript-eslint" has been merged into "prettier" in eslint-config-prettier 8.0.0. See: https://github.com/prettier/eslint-config-prettier/blob/main/CHANGELOG.md#version-800-2021-02-21
   ],
-  env: {
-    "jest/globals": true,
+  rules: {
+    "prettier/prettier": [
+      "error",
+      {
+        semi: false,
+      },
+    ],
   },
-  // rules: {
-  //   "jest/no-alias-methods": "false"
-  // },
-});
+})
 
-
-// TypeScript
-export_module = merge(export_module, {
-  plugins: [
-    "@typescript-eslint"
-  ],
-  parser: "@typescript-eslint/parser", // 英英辞書 最初のステップでは、検索スペースに索引が含まれている場合、パーサーは検索照会を評価し、検索照会内の単語と属性、および索引の有効範囲に基づいてデータ構造を作成します。
-});
-
-// 出力
-//console.log(export_module);
-module.exports = export_module
+module.exports = merge(eslintCfg)
