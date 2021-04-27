@@ -1,7 +1,9 @@
 # my_portfolio
 firebase用。
 
-## 使ってる機能
+## firebase について
+
+## firebase で使ってる機能
 
 - hosting
 - functions
