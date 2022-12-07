@@ -9,22 +9,19 @@
     "logs": "firebase functions:log",
     "lint": "eslint src/**.ts"
   },
-  "engines": {
-    "node": "12"
-  },
   "main": "lib/index.js",
   "private": true,
   "dependencies": {
     "basic-auth-connect": "^1.0.0",
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
-    "firebase-admin": "^9.7.0",
-    "firebase-functions": "^3.13.2",
+    "firebase-admin": "^11",
+    "firebase-functions": "^4",
     "request": "^2.88.2",
     "request-promise": "^4.2.6"
   },
   "devDependencies": {
-    "firebase-functions-test": "^0.1.6",
+    "firebase-functions-test": "^3",
     "pug": "^3.0.2",
     "typescript": "^3.2.2"
   }
