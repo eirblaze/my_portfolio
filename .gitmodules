@@ -1,5 +1,5 @@
-[submodule "functions\\src\\secret"]
-	path = functions\\src\\secret
+[submodule "functions/src/secret"]
+	path = functions/src/secret
 	url = git@github.com:eirblaze/my_portfolio_secret.git
 [submodule "front/src/front_secret"]
 	path = front/src/front_secret
